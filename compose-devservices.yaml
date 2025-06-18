@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:17
+    healthcheck:
+      test: pg_isready -U admin -d better1cak
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: better1cak
+
+    volumes:
+      - better1cak-data:/var/lib/postgresql/data
+
+volumes:
+  better1cak-data:
