@@ -7,7 +7,7 @@ services:
       timeout: 3s
       retries: 3
     ports:
-      - "5432"
+      - "5000:5432"
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin123
