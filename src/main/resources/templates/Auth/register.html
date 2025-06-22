@@ -1,0 +1,20 @@
+{#include layout.html }
+  {#title}Complete registration{/title}
+
+  {#form uri:Auth.manualRegister()}
+
+    <fieldset>
+      {#formElement name="email" label="Email"}
+          {#input name="email" /}
+      {/formElement}
+      {#formElement name="username" label="User Name"}
+          {#input name="username" /}
+      {/formElement}
+      {#formElement name="password" label="Password"}
+          {#input name="password" type="password"/}
+      {/formElement}
+      <button type="submit" class="btn btn-primary">Register</button>
+    </fieldset>
+
+  {/form}
+{/include}
