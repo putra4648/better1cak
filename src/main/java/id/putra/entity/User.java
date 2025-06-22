@@ -1,15 +1,18 @@
 package id.putra.entity;
 
 import com.vladmihalcea.hibernate.type.array.ListArrayType;
+import io.quarkiverse.renarde.security.RenardeUser;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Table(name = "users")
 @Entity
-public class User implements Serializable {
+public class User implements RenardeUser, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     public String id;
@@ -40,4 +43,19 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     public List<Vote> votes;
 
+
+    @Override
+    public Set<String> roles() {
+        return new HashSet<>(this.roles);
+    }
+
+    @Override
+    public String userId() {
+        return String.valueOf(this.id);
+    }
+
+    @Override
+    public boolean registered() {
+        return true;
+    }
 }
