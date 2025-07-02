@@ -1,6 +1,8 @@
-<input name="{name}"
-       type="{type ?: 'text'}"
-       placeholder="{placeholder ?: ''}"
-       class="form-control {#ifError name}is-invalid{/ifError}"
-       maxlength="{global:VARCHAR_SIZE}"
-       value="{inject:flash.get(name)}"/>
+<input
+  name="{name}"
+  type="{type ?: 'text'}"
+  placeholder="{placeholder ?: ''}"
+  class="form-control {#ifError name}is-invalid{/ifError}"
+  maxlength="{global:VARCHAR_SIZE}"
+  value="{inject:flash.get(name)}"
+/>

@@ -1,0 +1,30 @@
+{#include layout}
+<div class="container">
+  <h4>Create Post</h4>
+  {#form enctype="multipart/form-data" uri:User.createPost}
+  <img id="image-preview" class="border" style="height: 500px; width: 100%" />
+  <input
+    class="form-control"
+    name="post"
+    id="post"
+    accept="image/*"
+    type="file"
+  />
+  <button class="btn btn-primary" type="submit">Submit</button>
+  {/form}
+
+  <script>
+    $('input[name="post"]').on("change", function () {
+      const file = $(this).prop("files");
+      if (file) {
+        const fileReader = new FileReader();
+        const preview = document.getElementById("file-preview");
+        fileReader.onload = (event) => {
+          $("#image-preview").prop("src", event.target.result);
+        };
+        fileReader.readAsDataURL(file[0]);
+      }
+    });
+  </script>
+</div>
+{/include}

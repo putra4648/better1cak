@@ -1,22 +1,25 @@
-{#include layout.html }
-    {#title}Login{/title}
+{#include layout.html } {#title}Login{/title}
 
-    <div class="row">
-        <div class="col-md-5">
-            {#form uri:Auth.manualLogin()}
-                <fieldset>
-                    <legend>Login</legend>
-                    {#formElement name = "username" label = "User Name"}
-                            {#input name = "username"/}
-                    {/formElement}
-                    {#formElement name = "password" label = "Password"}
-                            {#input name = "password" type = "password"/}
-                    {/formElement}
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </fieldset>
-            {/form}
+<div class="container mx-auto">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          {#form uri:Auth.login()}
+          <fieldset>
+            <legend>Login</legend>
+            {#formElement name = "username" label = "User Name"} {#input name =
+            "username"/} {/formElement} {#formElement name = "password" label =
+            "Password"} {#input name = "password" type = "password"/}
+            {/formElement}
+            <button type="submit" class="btn btn-primary">Login</button>
+          </fieldset>
+          {/form}
         </div>
-        <a href="Auth/register">Register</a>
+        {! <a href="register">Register</a> !}
+      </div>
     </div>
+  </div>
+</div>
 
 {/include}
